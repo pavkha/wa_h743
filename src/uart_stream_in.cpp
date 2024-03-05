@@ -47,8 +47,8 @@ bool uart_stream_in_buff<S>::write(iuart_stream_in_buff::data_type data) {
 template <uint16_t S>
 int uart_stream_in_rtos_buff<S>::read(iuart_stream_in_buff::data_type* buff,
                                       uint16_t length) {
-    for (uint16_t i = 0, count = 0; count < length; ++count) {
-        buff_.Dequeue(&buff[i++]);
+    for (uint16_t i = 0; i < length; ++i) {
+        buff_.Dequeue(&buff[i]);
     }
 
     return length;
